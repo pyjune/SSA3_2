@@ -1,0 +1,73 @@
+3 5			N, M = map(int, input().split())
+1 2 3 4 5			arr = [ list(map(int, input().split())) for _ in range(N)]
+8 8 9 9 7
+4 4 1 1 2
+
+행, 열의 크기 N, M
+N줄에 걸쳐 M개씩 10이하의 자연수
+1. 2차원 배열 arr[][]에 저장 
+2. arr의 원소 중 짝수의 개수는?	cnt = 0
+				even = []
+				for i in range(N):
+					for j in range(M):
+						if arr[i][j]%2==0:
+							cnt += 1
+							even.append(arr[i][j])
+				print(cnt)
+				print(len(even))
+3. 정수N이 주어지면 1~N으로 채워진 1차원 배열 만들기
+5
+arr = [ 1, 2, 3, 4, 5  ]
+
+4. 정수 N과 10미만의 자연수로 구성된 NxN 행렬이 주어질때
+5
+1 2 3 4 5		for i in range(N):
+6 7 8 9 4			for j in range(N):
+7 6 5 3 2				print(arr[i][j], end = ' ')
+4 5 3 2 1			print()
+5 5 2 1 4 
+다음과 같이 출력
+1 
+6 7
+7 6 5
+4 5 3 2
+5 5 2 1 4
+
+6. 절대값 백만 이내의 정수 N개로 구성된 수열에서, 연속한 M개의 합이 
+최대인 합을 출력하는 프로그램을 만드시오. 5<=N<=100, 2<=M<N
+첫줄에 N과 M, 다음 줄에 N개의 정수가 주어진다.
+
+7. 10이하의 자연수 N개로 구성된 수열이 주어진다. 각 숫자를 Ai라고 할 때,
+각 숫자의 좌 우로 Ai개씩의 원소와 Ai를 더한 합 중 최대값을 구하는
+프로그램을 만드시오. 만약 왼쪽이나 오른쪽에 Ai개의 원소가 존재하지 않는경우
+존재하는 원소에 대해서만 합을 구한다.
+10
+1 3 2 5 2 2 3 1 1 6
+
+8. NxM 자연수 행렬이 주어질 때, 내부의 nxm 영역의 합 중 최대 값을 구하시오
+1<N, M<100, 0<n<N, 0<m<M
+maxV  = 0
+for i in range(N-n+1):
+	for j in range(M-m+1):
+		s = 0
+		for r in range(i, i+n):
+			for c in range(j, j+m):
+				s += A[r][c]
+		if maxV<s:
+			maxV = s
+print(maxV)
+9. NxM 행렬이 주어질 때, 모든 가장자리 칸(0과 N-1행, 0과 M-1행)의 합을 구하시오.
+s = 0
+for i in range(N):
+	s += A[i][0] + A[i][M-1]
+for j in range(M);
+	s += A[0][j] + A[N-1][j]
+s -= A[0][0]+A[0][M-1]+A[N-1][0]+A[N-1][M-1] # 모서리 중복
+중복 없이 하려면
+s = 0
+for i in range(1, N-1): # 모서리 제외
+	s += A[i][0] + A[i][M-1]
+for j in range(M);
+	s += A[0][j] + A[N-1][j]
+
+10. NxM 행렬이 주어질 때, 내부의 nxm 영역의 가장 자리 칸의 합 중 최대값...
